@@ -6,7 +6,7 @@
 'use strict';
 
 function capitalize(str) {
-  return str.substr(0, 1) + str.substr(1);
+  return str.substr(0, 1).toUpperCase() + str.substr(1);
 }
 
 angular.module("jj.matchMedia", []).
