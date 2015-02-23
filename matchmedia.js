@@ -5,8 +5,12 @@
  */
 'use strict';
 
-angular.module("jj.matchmedia", []).
-    provider('matchmedia', function (){
+function capitalize(str) {
+  return str.substr(0, 1) + str.substr(1);
+}
+
+angular.module("jj.matchMedia", []).
+    provider('matchMedia', function (){
 
         ///////////////////////////////////////////////////////////////////////
         // Configuration
@@ -52,18 +56,13 @@ angular.module("jj.matchmedia", []).
                     }, $scope);
                 };
             }
-
-            function capitalize(str) {
-                return str.substr(0, 1) + str.substr(1);
-            }
-
             ///////////////////////////////////////////////////////////////////////
             // Public Methods
             ///////////////////////////////////////////////////////////////////////
             // should never be called directly, but is available for custom calls.
 
             // expose the ruleset so our directive can know about them.
-            var matchmediaService = { _rules: Object.keys(matchmedia.rules) };
+            var matchmediaService = { rules: Object.keys(matchmedia.rules) };
 
             /**
              * @param {string} query media query to listen on.
@@ -111,6 +110,17 @@ angular.module("jj.matchmedia", []).
         }];
         return matchmedia;
     })
+    .service('$media', ['matchMedia', function(matchMedia) {
+      var $media = {};
+      
+      matchMedia.rules.forEach(function(rule) {
+        matchMedia['on' + capitalize(rule)](function(list) {
+          $media['is' + capitalize(rule)] = !!list.matches;
+        });
+      });
+
+      return $media;
+    }])
     .factory('mmSafeApply', ['$rootScope', function($rootScope) {
         return function(fn, $scope) {
             $scope = $scope || $rootScope;
