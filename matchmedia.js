@@ -45,7 +45,7 @@ angular.module("jj.matchMedia", []).
             }
         };
 
-        matchmedia.$get = ['$window','mmSafeApply', 'logger', function($window, safeApply, logger) {
+        matchmedia.$get = ['$window','mmSafeApply', function($window, safeApply) {
             ///////////////////////////////////////////////////////////////////////
             // Private Methods
             ///////////////////////////////////////////////////////////////////////
