@@ -2,13 +2,13 @@
   "name": "jj-matchmedia",
   "version": "0.1.0",
   "description": "",
-  "main": "matchmedia-ng.js",
+  "main": "matchmedia.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jonjaques/matchmedia-ng.git"
+    "url": "git://github.com/jonjaques/matchmedia.git"
   },
   "authors": [
     "Jason Kulatunga",
@@ -16,7 +16,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jonjaques/matchmedia-ng/issues"
+    "url": "https://github.com/jonjaques/matchmedia/issues"
   },
-  "homepage": "https://github.com/jonjaques/matchmedia-ng"
+  "homepage": "https://github.com/jonjaques/matchmedia"
 }
